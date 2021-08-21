@@ -28,7 +28,6 @@ public class App {
             );
 
 
-
         Ingredient ingr2 = new Ingredient();
 
         final String selectSql = "SELECT id, name, price FROM ingredient WHERE id=?";
@@ -42,7 +41,8 @@ public class App {
                 entity.setId(resultSet.getString("id"));
                 entity.setName(resultSet.getString("name"));
                 entity.setPrice(resultSet.getDouble("price"));
-            }).orElseThrow();
+            })
+            .orElseThrow();
 
             System.out.println("We obtained an object with " +ingr2.getClass() +", and fields 'name'=" + ingr2.getName() + 
             ", 'price'=" + ingr2.getPrice() + "€ " +

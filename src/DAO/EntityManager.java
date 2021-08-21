@@ -6,7 +6,7 @@ import java.util.*;
 
 import Config.IConfiguration;
 
-public class EntityManager implements IEntityManager {
+public class EntityManager implements IEntityManager{
 
     private List<IRunnables> runnables = new ArrayList<IRunnables>();
     private IConfiguration configuration = null;
