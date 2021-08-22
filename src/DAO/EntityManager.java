@@ -78,12 +78,12 @@ public class EntityManager implements IEntityManager{
             PreparedStatement statement = connection.prepareStatement(runnable.getSql());
             runnable.run(statement);
 
-            ResultSet resultSetSQL = statement.executeQuery();
+            ResultSet resultSetSql = statement.executeQuery();
 
-            while(resultSetSQL.next()){
+            while(resultSetSql.next()){
 
                 entity = classV.getConstructor().newInstance();
-                resultset.run(resultSetSQL, entity);
+                resultset.run(resultSetSql, entity);
             }
         }
         catch(SQLException |  IllegalAccessException | IllegalArgumentException | InstantiationException |InvocationTargetException | SecurityException | NoSuchMethodException exception){
