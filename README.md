@@ -13,8 +13,7 @@ Across the exercise generic classes have been implemented. These are noted with 
 
 - **Code reuse.** A class/method/interface can be written once, then used as many times as needed.
 - **Type safety.** Generics make errors appear at run time. This saves time coding and debugging.
-- **Individual Type Casting is not needed.**
-- **Generics promote code reusability.** Casts are mostly eliminated.
+- **Individual Type Casting is not needed.** Casts are mostly eliminated.
 - **Generics allow the implementation of generic algorithms.** These can work on different types and objects, and facilitate the readability of our code.
 
 ## **Configuration**.
