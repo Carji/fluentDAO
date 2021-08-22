@@ -4,12 +4,12 @@ public class Ingredient extends Entity{
     private String name;
     private double prize;
 
+    public Ingredient(){
+    }
+
     public Ingredient(String name, double prize){
         this.name = name;
         this.prize = prize;
-    }
-
-    public Ingredient() {
     }
 
     public String getName(){

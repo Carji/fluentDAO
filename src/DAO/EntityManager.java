@@ -61,9 +61,9 @@ public class EntityManager implements IEntityManager{
         }
     }  
 
-    public <V> Optional<V> select(Class<V> classV, DAOResultSet<V> resultset) {
+    public <T> Optional<T> select(Class<T> classT, DAOResultSet<T> resultset) {
 
-        V entity = null;
+        T entity = null;
         Connection connection = null;
 
         try{
@@ -82,14 +82,14 @@ public class EntityManager implements IEntityManager{
 
             while(resultSetSql.next()){
 
-                entity = classV.getConstructor().newInstance();
+                entity = classT.getConstructor().newInstance();
                 resultset.run(resultSetSql, entity);
             }
         }
         catch(SQLException |  IllegalAccessException | IllegalArgumentException | InstantiationException |InvocationTargetException | SecurityException | NoSuchMethodException exception){
             exception.printStackTrace();
         }
-        finally {
+        finally{
             this.runnables = Clean.clear(this.runnables);
             try {
                 if(!connection.isClosed()){
@@ -103,17 +103,17 @@ public class EntityManager implements IEntityManager{
         return Optional.of(entity);
     }
 
-    public <V> IEntityManager addStatement(V entity, String sql, Statement<V> statement) {
-        IRunnables runnable = new Runnables<V>(sql, entity, statement);
+    public <T> IEntityManager addStatement(T entity, String sql, Statement<T> statement) {
+        IRunnables runnable = new Runnables<T>(sql, entity, statement);
         this.runnables.add(runnable);
         return this;
     }
 
 
-    public <V> IEntityManager addRangeStatement(Iterable<V> iterable, String sql, Statement<V> statement) {
+    public <T> IEntityManager addRangeStatement(Iterable<T> iterable, String sql, Statement<T> statement) {
         
-        for(V entity : iterable){
-            IRunnables runnable = new Runnables<V>(sql, entity, statement);
+        for(T entity : iterable){
+            IRunnables runnable = new Runnables<T>(sql, entity, statement);
             this.runnables.add(runnable);
         }
         return this;
