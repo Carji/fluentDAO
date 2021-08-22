@@ -2,10 +2,6 @@ package Domain;
 public abstract class Entity {
     public String id;
 
-    public void generateID(String id){
-        this.id = id;
-    }
-
     public String getId() {
         return id;
     }

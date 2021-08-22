@@ -3,10 +3,11 @@ package DAO;
 import java.util.Optional;
 
 public interface IEntityManager {
+    
     public void save();
 
-    public <T> Optional<T> select(Class<T> clazz, DAOResultSet<T> resultset);
+    public <V> Optional<V> select(Class<V> classV, DAOResultSet<V> resultset);
 
-    public <T> IEntityManager addStatement(final T entity, String sql, Statement<T> statement);
-    public <T> IEntityManager addRangeStatement(final Iterable<T> iterable, String sql, Statement<T> statement);
+    public <V> IEntityManager addStatement(final V entity, String sql, Statement<V> statement);
+    public <V> IEntityManager addRangeStatement(final Iterable<V> iterable, String sql, Statement<V> statement);
 }
