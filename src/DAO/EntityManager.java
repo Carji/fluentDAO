@@ -43,8 +43,8 @@ public class EntityManager implements IEntityManager{
             try {
                 connection.rollback();
             } 
-            catch (SQLException excepcion2) {
-                excepcion2.printStackTrace();
+            catch (SQLException exception2) {
+                exception2.printStackTrace();
             }
             exception.printStackTrace();
         }
